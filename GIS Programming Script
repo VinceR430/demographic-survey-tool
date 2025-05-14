@@ -1,0 +1,67 @@
+name = " "
+sex = " "
+age = float()
+male_amount = 0
+female_amount = 0
+male_totalage = 0
+female_totalage = 0
+male_avgage = float()
+female_avgage = float()
+list_people = []
+
+while name != "":
+    name = input("Enter name or press enter to exit list: ")
+    if name == "":
+
+        sex = input("Enter sex(Male/Female) here: ")
+        age = input("Enter age(18-65) here: ")
+
+        if sex == "Male":
+
+            if int(age) >= 18 and int(age) <= 65:
+
+                male_amount += 1
+                male_totalage += float(age)
+
+            else:
+                print("Selected age was outside of the parameters. Please reenter information again.")
+        elif sex == "Female":
+
+            if int(age) >= 18 and int(age) <= 65:
+
+                female_amount += 1
+                female_totalage += float(age)
+
+            else:
+                print("Selected age was outside of the parameters. Please reenter information again.")
+
+        else:
+            print("Selected Sex was input incorrectly. Loop will start over.")
+
+        list_people.append(name)
+        list_people.append(sex)
+        list_people.append(age)
+
+else:
+    print("The list has been exited. Count and average ages will be computed.")
+
+    try:
+
+        female_avgage = (female_totalage // female_amount)
+        print("The female count is:")
+        print(female_amount)
+        print("The average female age:")
+        print(female_avgage)
+    except:
+        print("There is no data for females")
+
+    try:
+
+        male_avgage = (male_totalage // male_amount)
+        print("The male count is:")
+        print(male_amount)
+        print("The average male age:")
+        print(male_avgage)
+    except:
+
+        print("There is no data for males")
